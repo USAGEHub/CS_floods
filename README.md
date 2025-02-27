@@ -1,8 +1,3 @@
-
-[[_TOC_]]
-
---------------------------------------------------------------------------------------------------------
-
 # Description
 
 The tool elaborates the data about flood-impacted locations collected with speditive surveys in order to derive their spatial extensione and estimate their water volume. 
@@ -33,7 +28,7 @@ Support the impact evaluation of floods by the local municipalities by providing
 
 # Use of resource
 
-First part
+**First part**
 * Assigns a spatial reference system to the surveyed dataset
 * Converts it to a known projected system 
 * Determines for each surveyed linestring if it is "almost close", measuring if it ends up within a custom distance from where it begins
@@ -43,13 +38,9 @@ First part
 * Merge linear and non-linear features
 * Intersect the poligonized features with the building footprints and remove from the first all overlapping areas 
 
-Second part
+**Second part**
 * Extract day from timestamp of survey
 * Dissolve overlapping polygons related to the same day of survey
 * Computes minumun (h_min) and maximum (h_max) DEM height for each dissolved polygon
 * Computes the area (A) of each dissolved polygon
 * Estimates the flooded volume (V) corresponding to each dissolved polygon by assimilating the volume to a cone of base (A) and height (h = h_max - h_min): V = A * h / 3
-
-
-
---------------------------------------------------------------------------------------------------------
