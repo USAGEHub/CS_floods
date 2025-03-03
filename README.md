@@ -18,7 +18,11 @@ Once the surface extension of every surveyed feature is established, features su
 # Output data requirements
 
 * Flood-impacted locations (elaborated), with polygon geometry and an additional boolean field named "Lineare"
-* Estimation of flooded volumes, with polygon geometry, a date field for the survey date and a decimal field "Volume_allagato_m3" for the estimated volume
+* Estimation of flooded volumes with a polygon geometry and the following fields:
+   * "Giorno": the survey date
+   * "Area_m2": the extension of the flooded surface
+   * "Altezza_acqua_cm": the estimated depth of the flooded volume
+   * "Volume_allagato_m3": the estimated value of the flooded volume
 
 
 # Objective
@@ -43,4 +47,5 @@ Support the impact evaluation of floods by the local municipalities by providing
 * Dissolve overlapping polygons related to the same day of survey
 * Computes minumun (h_min) and maximum (h_max) DEM height for each dissolved polygon
 * Computes the area (A) of each dissolved polygon
-* Estimates the flooded volume (V) corresponding to each dissolved polygon by assimilating the volume to a cone of base (A) and height (h = h_max - h_min): V = A * h / 3
+* Estimates the depth (h) of the flooded volume corresponding to each dissolved polygon by assuming it corresponds to the difference between max and min DEM heigh: h = h_max - h_min
+* Estimates the flooded volume (V) corresponding to each dissolved polygon by assimilating the volume to a cone of base (A) and height (h): V = A * h / 3
